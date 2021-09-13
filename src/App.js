@@ -1,58 +1,37 @@
 import './App.css';
 
-const chalk = require('chalk'); // npm Chalk
+// const chalk = require('chalk'); // npm Chalk
 const randomColor = require('randomcolor'); // import the script npm randomcolor
+// ex for color: #ea09ef
 const color = randomColor({
-  luminosity: process.argv[1],
-  hue: process.argv[2],
+  // luminosity: process.argv[1],
+  // hue: process.argv[2],
 });
-// @emotion/css
-
-// function App() {
-// return (
-//   <div className="coloredElement">
-//     <header className="App-header">
-//       <img src={logo} className="App-logo" alt="logo" />
-//       <p>
-//         Edit <code>src/App.js</code> and save to reload.
-//       </p>
-//       <a
-//         className="App-link"
-//         href="https://reactjs.org"
-//         target="_blank"
-//         rel="noopener noreferrer"
-//       >
-//         Learn React
-//       </a>
-//     </header>
-//   </div>
-// );
-// }
-
+console.log('test', typeof color); // use typeof something to check datatype, careful with array : will say it's an object but it's not (it's an array)
+// object is loged with {}, array mit []!!!
+console.log(typeof [1, 2, 3], Array.isArray([4, 5, 6])); // isArray checks if whatever is written before it s actually an array
 function ColorStuff() {
   // create funcion that creates div that is to be colored by the CSS part
   return (
     // the {} are used to activate CSS with the inline styles; the part inside the {} of styles is the object
+    // the first curly brackets tell JSX (the html part) that I am about to use JS.
+    // the scond curly brackets are a JS object but styled with CSS syntax mixed - tell that have opropeties of CSS and call a JS object with JS properties that look like CSS properties
     <div
       className="coloredElement"
       style={{
         fontSize: 70,
         width: '300px',
         height: '200px',
-        backgroundColor: 'red',
+        backgroundColor: color, //randomColor(), both call the function to create a random color
       }}
-    ></div>
+    >
+      <div> {color /* the curly brackets call JS?*/} </div>
+    </div>
   );
 }
-
 // .coloredElement // create CSS part that styles the div to a box with the color from the random color generator
 
 export default ColorStuff;
-
-// import randomColor from 'randomcolor';
-// import fs from 'fs'; // part of node-fetch
-// const fs = require('fs');
-
 /*
 Design and develop a random color generator web application using React that shows the hex code and changes the color of some element.
 
