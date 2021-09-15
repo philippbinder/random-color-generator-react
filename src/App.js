@@ -1,6 +1,4 @@
 import './App.css';
-// import { css, jsx } from '@emotion/react';
-// import './styles.css';
 import { useState } from 'react';
 
 const randomColor = require('randomcolor');
