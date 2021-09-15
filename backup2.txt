@@ -1,0 +1,54 @@
+import './App.css';
+import { css } from '@emotion/react';
+import { useState } from 'react';
+
+const randomColor = require('randomcolor'); // import the script npm randomcolor
+// ex for color: #ea09ef
+const color = randomColor();
+// Fehler dürfte bei emotion liegen!!! Funktionsweise genauer rausfinden.
+function ColoredDiv() {
+  const [divColor, setDivColor] = useState('');
+
+  <h1> Random Color Generator - React </h1>;
+
+  // styling the div with the library @emotion
+  // since we are in backticks, we have to use the $ to search for the variable that contains the random color from the library randomcolor
+  const divStyle = css`
+    background-color: ${color}; // SCRAP emotion, not needed, will be the topic of next week
+    /* width: 300px;
+    height: 200px; */
+    /* justify-content: center;
+    align-content: center; */
+  `;
+  // style for the <p>
+  const pStyle = css`
+    font-size: 40px;
+    font-style: italic;
+  `;
+
+  // want to use this variable to show the hex code in a <p> inside the div
+  const showCode = `${color}`;
+
+  // thisis the content I want to be shown once the function fires:
+  return (
+    <div css={divStyle}>
+      {/* <p css={pStyle}> {`The hex code is: ${color} `} </p>;
+      <button
+        onClick={() => {
+          setDivColor(color);
+        }}
+      >
+        {' '}
+        Click for random color.{' '}
+      </button> */}
+    </div>
+    // the {} enable me to call the function that contains the random color and the backticks make
+    // everything inside normal plain text BUT the $ enables the search for the
+    // random color which becomes a hex code thanks to the backticks?
+    // onClick with arrow function?
+  );
+}
+
+export default ColoredDiv; // has to be the funtion name!!
+
+/* <button onClick={() => {setDivColor}}> Click for random color. </button>; */
